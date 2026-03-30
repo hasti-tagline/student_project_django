@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'students'
+    'students',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -86,6 +87,13 @@ DATABASES = {
         'HOST': os.getenv("DB_HOST"),
         'PORT': os.getenv("DB_PORT"),
     }
+}
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 }
 
 

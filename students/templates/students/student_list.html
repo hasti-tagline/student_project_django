@@ -1,0 +1,15 @@
+<h1>Students</h1>
+<form method="GET">
+    <input type="text" name="q" placeholder="Search by name">
+    <button type="submit">Search</button>
+</form>
+<a href="{% url 'student_add' %}">Add Student</a>
+<ul>
+    {% for student in students %}
+        <li>
+            {{ student.name }} - {{ student.age }} - {{ student.email }}
+            <a href="{% url 'student_edit' student.pk %}">Edit</a>
+            <a href="{% url 'student_delete' student.pk %}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
